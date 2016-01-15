@@ -1,6 +1,6 @@
 # sudocp
 
-Bash script to copy files that's readable by your user to a location that is writable by a user you only have `sudo` access to.
+Bash script to copy files to a location that is writable by a user you only have `sudo` access to.
 
 **Warning:** This will clobber files in the destination.
 
