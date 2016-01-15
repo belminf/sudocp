@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Help
+usage() {
+        echo -e "Usage: $0 SUDO_USER SOURCE... DEST_DIR"
+}
+
+# Check if we have enough args
+if [ $# -lt 3 ]
+then
+        usage
+        exit 1
+fi
+
+# Arguments
+SUDO_USER=$1
+SOURCE=${@:2:$#-2}
+DEST_DIR=${@: -1}
+
+# TAR files and copy it over
+tar -c $SOURCE | sudo -u $SUDO_USER tar -x --no-same-owner -p -v -C $DEST_DIR
